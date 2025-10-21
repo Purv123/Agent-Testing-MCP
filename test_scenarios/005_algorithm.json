@@ -1,0 +1,96 @@
+{
+  "id": "advanced_001",
+  "title": "Implement Binary Search",
+  "description": "Implement an efficient binary search algorithm to find an element in a sorted array.",
+  "category": "advanced",
+  "difficulty": "hard",
+  "context": "Binary search is an efficient algorithm for finding an item in a sorted list. It works by repeatedly dividing the search interval in half. You need to implement this algorithm correctly and efficiently.",
+  "requirements": [
+    "Create a function named 'binary_search' that takes a sorted array and target value",
+    "Return the index of the target if found, -1 if not found",
+    "Use the binary search algorithm (not linear search)",
+    "Time complexity should be O(log n)",
+    "Handle edge cases like empty arrays"
+  ],
+  "success_criteria": [
+    "All test cases pass",
+    "Algorithm is truly binary search (logarithmic time)",
+    "Code is efficient and clean",
+    "Edge cases are handled properly"
+  ],
+  "language": "python",
+  "timeout": 10,
+  "test_cases": [
+    {
+      "input": {
+        "array": [1, 3, 5, 7, 9, 11, 13, 15],
+        "target": 7
+      },
+      "expected_output": 3,
+      "description": "Find element in middle"
+    },
+    {
+      "input": {
+        "array": [1, 3, 5, 7, 9, 11, 13, 15],
+        "target": 1
+      },
+      "expected_output": 0,
+      "description": "Find first element"
+    },
+    {
+      "input": {
+        "array": [1, 3, 5, 7, 9, 11, 13, 15],
+        "target": 15
+      },
+      "expected_output": 7,
+      "description": "Find last element"
+    },
+    {
+      "input": {
+        "array": [1, 3, 5, 7, 9, 11, 13, 15],
+        "target": 6
+      },
+      "expected_output": -1,
+      "description": "Element not in array"
+    },
+    {
+      "input": {
+        "array": [],
+        "target": 5
+      },
+      "expected_output": -1,
+      "description": "Empty array"
+    },
+    {
+      "input": {
+        "array": [5],
+        "target": 5
+      },
+      "expected_output": 0,
+      "description": "Single element array (found)"
+    }
+  ],
+  "starter_code": "def binary_search(array, target):\n    # Your code here\n    # Remember: binary search works by dividing the search space in half\n    pass\n\ndef main(array, target):\n    return binary_search(array, target)",
+  "hints": [
+    "Keep track of left and right pointers",
+    "Calculate middle index as (left + right) // 2",
+    "Compare target with middle element and adjust pointers",
+    "Continue until left <= right"
+  ],
+  "evaluation_metrics": {
+    "weights": {
+      "correctness": 0.5,
+      "quality": 0.2,
+      "completeness": 0.2,
+      "relevance": 0.1
+    },
+    "pass_threshold": 0.8
+  },
+  "prerequisites": {
+    "knowledge": [
+      "Understanding of arrays and indexing",
+      "Basic algorithm design",
+      "Understanding of time complexity"
+    ]
+  }
+}

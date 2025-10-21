@@ -1,0 +1,74 @@
+{
+  "id": "bugfix_001",
+  "title": "Fix the Broken Calculator",
+  "description": "The following calculator function has several bugs. Find and fix all the bugs to make it work correctly.",
+  "category": "bug_fix",
+  "difficulty": "easy",
+  "context": "A simple calculator function was written but it's not working correctly. Users have reported that division doesn't work, subtraction gives wrong results, and it crashes with certain inputs.",
+  "requirements": [
+    "Fix the division operation (currently always returns 0)",
+    "Fix the subtraction operation (currently adds instead of subtracts)",
+    "Add error handling for division by zero",
+    "Ensure all operations return correct numeric results"
+  ],
+  "success_criteria": [
+    "All arithmetic operations work correctly",
+    "Division by zero is handled gracefully",
+    "All test cases pass"
+  ],
+  "language": "python",
+  "timeout": 10,
+  "test_cases": [
+    {
+      "input": {
+        "a": 10,
+        "b": 5,
+        "operation": "add"
+      },
+      "expected_output": 15,
+      "description": "Addition test"
+    },
+    {
+      "input": {
+        "a": 10,
+        "b": 3,
+        "operation": "subtract"
+      },
+      "expected_output": 7,
+      "description": "Subtraction test (currently buggy)"
+    },
+    {
+      "input": {
+        "a": 20,
+        "b": 4,
+        "operation": "divide"
+      },
+      "expected_output": 5.0,
+      "description": "Division test (currently buggy)"
+    },
+    {
+      "input": {
+        "a": 10,
+        "b": 0,
+        "operation": "divide"
+      },
+      "expected_output": "Error: Division by zero",
+      "description": "Division by zero handling"
+    }
+  ],
+  "starter_code": "def calculator(a, b, operation):\n    \"\"\"Buggy calculator - fix the bugs!\"\"\"\n    if operation == 'add':\n        return a + b\n    elif operation == 'subtract':\n        return a + b  # BUG: Should subtract\n    elif operation == 'multiply':\n        return a * b\n    elif operation == 'divide':\n        return a // b  # BUG: Integer division, should be regular division\n        # BUG: No handling for division by zero\n    else:\n        return 'Invalid operation'\n\ndef main(a, b, operation):\n    return calculator(a, b, operation)",
+  "hints": [
+    "Look carefully at the subtraction operation",
+    "Check what type of division is being used",
+    "Add a check for zero before dividing"
+  ],
+  "evaluation_metrics": {
+    "weights": {
+      "correctness": 0.6,
+      "quality": 0.2,
+      "completeness": 0.1,
+      "relevance": 0.1
+    },
+    "pass_threshold": 0.8
+  }
+}

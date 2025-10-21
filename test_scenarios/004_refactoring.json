@@ -1,0 +1,74 @@
+{
+  "id": "refactor_001",
+  "title": "Refactor Code for Better Readability",
+  "description": "Refactor the following working but messy code to make it more readable, maintainable, and follow Python best practices.",
+  "category": "refactoring",
+  "difficulty": "medium",
+  "context": "The code below works correctly but is hard to read and maintain. It needs refactoring to improve code quality while maintaining the same functionality.",
+  "requirements": [
+    "Improve variable names to be more descriptive",
+    "Break down the large function into smaller, focused functions",
+    "Add docstrings and comments where appropriate",
+    "Follow PEP 8 style guidelines",
+    "Maintain the exact same functionality and test results"
+  ],
+  "success_criteria": [
+    "All original test cases still pass",
+    "Code is more readable and well-organized",
+    "Functions are smaller and single-purpose",
+    "Has proper documentation"
+  ],
+  "language": "python",
+  "timeout": 15,
+  "test_cases": [
+    {
+      "input": [1, 2, 3, 4, 5],
+      "expected_output": {
+        "sum": 15,
+        "average": 3.0,
+        "min": 1,
+        "max": 5,
+        "count": 5
+      },
+      "description": "Basic statistics calculation"
+    },
+    {
+      "input": [10],
+      "expected_output": {
+        "sum": 10,
+        "average": 10.0,
+        "min": 10,
+        "max": 10,
+        "count": 1
+      },
+      "description": "Single element"
+    },
+    {
+      "input": [-5, 0, 5],
+      "expected_output": {
+        "sum": 0,
+        "average": 0.0,
+        "min": -5,
+        "max": 5,
+        "count": 3
+      },
+      "description": "Mixed positive and negative"
+    }
+  ],
+  "starter_code": "def f(l):\n    s=0\n    mn=l[0]\n    mx=l[0]\n    for i in l:\n        s+=i\n        if i<mn:mn=i\n        if i>mx:mx=i\n    return {'sum':s,'average':s/len(l),'min':mn,'max':mx,'count':len(l)}\n\ndef main(numbers):\n    return f(numbers)",
+  "hints": [
+    "Use descriptive variable names like 'numbers' instead of 'l'",
+    "Consider using built-in functions like min(), max(), sum()",
+    "Add a docstring explaining what the function does",
+    "Consider creating separate functions for different calculations"
+  ],
+  "evaluation_metrics": {
+    "weights": {
+      "correctness": 0.3,
+      "quality": 0.5,
+      "completeness": 0.1,
+      "relevance": 0.1
+    },
+    "pass_threshold": 0.7
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "intermediate_001",
+  "title": "Parse and Analyze JSON Data",
+  "description": "Write a function that processes JSON data containing user information and returns statistics about the dataset.",
+  "category": "intermediate",
+  "difficulty": "medium",
+  "context": "You're working with a dataset of user records in JSON format. Each record contains name, age, email, and a list of purchased products. You need to extract meaningful statistics from this data.",
+  "requirements": [
+    "Create a function named 'analyze_users' that takes a JSON string as input",
+    "Parse the JSON data safely (handle invalid JSON)",
+    "Calculate and return a dictionary with: total_users, average_age, most_common_product",
+    "Handle edge cases like empty data or missing fields"
+  ],
+  "success_criteria": [
+    "Correctly parses valid JSON",
+    "Handles invalid JSON gracefully without crashing",
+    "Accurately calculates statistics",
+    "Returns results in the correct format"
+  ],
+  "language": "python",
+  "timeout": 15,
+  "test_cases": [
+    {
+      "input": "{\"users\": [{\"name\": \"Alice\", \"age\": 30, \"products\": [\"laptop\", \"mouse\"]}, {\"name\": \"Bob\", \"age\": 25, \"products\": [\"laptop\", \"keyboard\"]}]}",
+      "expected_output": {
+        "total_users": 2,
+        "average_age": 27.5,
+        "most_common_product": "laptop"
+      },
+      "description": "Valid JSON with two users"
+    },
+    {
+      "input": "{\"users\": []}",
+      "expected_output": {
+        "total_users": 0,
+        "average_age": 0,
+        "most_common_product": null
+      },
+      "description": "Empty user list"
+    },
+    {
+      "input": "invalid json",
+      "expected_output": {
+        "error": "Invalid JSON"
+      },
+      "description": "Invalid JSON handling"
+    }
+  ],
+  "starter_code": "import json\nfrom collections import Counter\n\ndef analyze_users(json_string):\n    # Your code here\n    pass\n\ndef main(json_string):\n    return analyze_users(json_string)",
+  "hints": [
+    "Use json.loads() to parse JSON, wrap in try-except for error handling",
+    "Use Counter from collections to find most common product",
+    "Don't forget to handle division by zero for average age"
+  ],
+  "evaluation_metrics": {
+    "weights": {
+      "correctness": 0.4,
+      "quality": 0.3,
+      "completeness": 0.2,
+      "relevance": 0.1
+    },
+    "pass_threshold": 0.7
+  }
+}

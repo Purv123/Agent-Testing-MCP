@@ -1,0 +1,63 @@
+{
+  "id": "basic_001",
+  "title": "Implement a Palindrome Checker",
+  "description": "Write a function that checks if a given string is a palindrome (reads the same forwards and backwards).",
+  "category": "basic",
+  "difficulty": "easy",
+  "context": "A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization. For example: 'racecar', 'A man a plan a canal Panama', '12321'.",
+  "requirements": [
+    "Create a function named 'is_palindrome' that takes a string as input",
+    "Return True if the string is a palindrome, False otherwise",
+    "Ignore case sensitivity (e.g., 'Racecar' should return True)",
+    "Ignore spaces and punctuation (only consider alphanumeric characters)"
+  ],
+  "success_criteria": [
+    "All test cases pass",
+    "Function handles edge cases (empty strings, single characters)",
+    "Code is clean and readable"
+  ],
+  "language": "python",
+  "timeout": 10,
+  "test_cases": [
+    {
+      "input": "racecar",
+      "expected_output": true,
+      "description": "Simple palindrome"
+    },
+    {
+      "input": "hello",
+      "expected_output": false,
+      "description": "Not a palindrome"
+    },
+    {
+      "input": "A man a plan a canal Panama",
+      "expected_output": true,
+      "description": "Palindrome with spaces and capitals"
+    },
+    {
+      "input": "",
+      "expected_output": true,
+      "description": "Empty string (edge case)"
+    },
+    {
+      "input": "Was it a car or a cat I saw?",
+      "expected_output": true,
+      "description": "Palindrome with punctuation"
+    }
+  ],
+  "starter_code": "def is_palindrome(text):\n    # Your code here\n    pass\n\ndef main(text):\n    return is_palindrome(text)",
+  "hints": [
+    "Consider converting the string to lowercase first",
+    "You can use string methods to remove non-alphanumeric characters",
+    "Compare the string with its reverse"
+  ],
+  "evaluation_metrics": {
+    "weights": {
+      "correctness": 0.5,
+      "quality": 0.2,
+      "completeness": 0.2,
+      "relevance": 0.1
+    },
+    "pass_threshold": 0.7
+  }
+}
