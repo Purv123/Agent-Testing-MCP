@@ -1,10 +1,11 @@
 # MCP Server Dependencies
-mcp>=1.0.0
-pydantic>=2.0.0
-pydantic-settings>=2.0.0
+# Note: Requires Python 3.9+
+mcp>=1.0.0,<2.0.0
+pydantic>=2.0.0,<3.0.0
+pydantic-settings>=2.0.0,<3.0.0
 
-# Evaluation Framework
-deepeval>=0.21.0
+# Evaluation Framework (optional but recommended)
+deepeval>=0.21.0; python_version >= '3.9'
 
 # Code Execution & Safety
 docker>=7.0.0
