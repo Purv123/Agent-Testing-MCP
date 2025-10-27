@@ -285,6 +285,8 @@ class CodeExecutor:
 
     def _generate_python_test_runner(self, test_cases: List[Dict[str, Any]]) -> str:
         """Generate Python test runner code"""
+        # Convert test_cases to a Python repr string instead of JSON to preserve Python types
+        test_cases_repr = repr(test_cases)
         return f'''
 import json
 import sys
@@ -292,7 +294,7 @@ import traceback
 from solution import *
 
 def run_tests():
-    test_cases = {json.dumps(test_cases)}
+    test_cases = {test_cases_repr}
     results = []
 
     for i, test_case in enumerate(test_cases):
@@ -301,13 +303,16 @@ def run_tests():
             expected = test_case.get("expected_output")
 
             # Try to find and call the main function
-            # This is a simplified approach - real implementation would be more robust
+            # Check globals() instead of dir() to find the main function
+            if "main" not in globals():
+                raise Exception("main() function not found in solution")
+
             if isinstance(input_data, dict):
-                result = main(**input_data) if "main" in dir() else None
+                result = main(**input_data)
             elif isinstance(input_data, list):
-                result = main(*input_data) if "main" in dir() else None
+                result = main(*input_data)
             else:
-                result = main(input_data) if "main" in dir() else None
+                result = main(input_data)
 
             passed = result == expected
 
