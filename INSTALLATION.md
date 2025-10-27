@@ -4,7 +4,8 @@ This guide will help you set up the Agent Testing MCP Server on a new machine.
 
 ## Prerequisites
 
-- **Python**: 3.9 or higher (3.11 recommended)
+- **Python**: **3.10 or higher** (3.11 or 3.12 recommended)
+  - ⚠️ **CRITICAL**: Python 3.9 and lower are NOT supported by the `mcp` package
 - **pip**: Latest version (upgrade with `pip install --upgrade pip`)
 - **Git**: For cloning the repository
 - **Docker** (Optional): For enhanced security in code execution
@@ -15,10 +16,10 @@ This guide will help you set up the Agent Testing MCP Server on a new machine.
 
 ```bash
 python3 --version
-# Should show Python 3.9.x or higher
+# MUST show Python 3.10.x or higher (3.11+ recommended)
 ```
 
-If you don't have Python 3.9+, install it:
+**If you see Python 3.9 or lower, you MUST upgrade:**
 - **macOS**: `brew install python@3.11`
 - **Ubuntu/Debian**: `sudo apt install python3.11 python3.11-venv`
 - **Windows**: Download from [python.org](https://www.python.org/downloads/)
@@ -64,17 +65,41 @@ pip install -r requirements.txt
 
 #### Issue: "No matching distribution found for mcp>=1.0.0"
 
+**Root Cause:** The `mcp` package requires Python 3.10+. All versions show "Requires-Python >=3.10".
+
 **Solutions:**
 
-1. **Upgrade pip first:**
-   ```bash
-   pip install --upgrade pip
-   ```
-
-2. **Check Python version:**
+1. **Check Python version (MOST IMPORTANT):**
    ```bash
    python --version
-   # Must be 3.9 or higher
+   # MUST be 3.10 or higher
+   ```
+
+   **If Python is 3.9 or lower, you must upgrade Python first!**
+
+   **macOS:**
+   ```bash
+   brew install python@3.11
+   # Then use python3.11 to create venv
+   python3.11 -m venv venv
+   ```
+
+   **Ubuntu/Debian:**
+   ```bash
+   sudo apt update
+   sudo apt install python3.11 python3.11-venv
+   # Then use python3.11
+   python3.11 -m venv venv
+   ```
+
+   **Windows:**
+   - Download Python 3.11+ from [python.org](https://www.python.org/downloads/)
+   - Install and ensure "Add to PATH" is checked
+   - Restart terminal
+
+2. **Upgrade pip (after confirming Python 3.10+):**
+   ```bash
+   pip install --upgrade pip
    ```
 
 3. **Install mcp separately:**

@@ -53,28 +53,39 @@ A universal testing framework for AI coding agents using the Model Context Proto
 
 ### Prerequisites
 
-- Python 3.9 or higher
+- **Python 3.10 or higher** (3.11+ recommended)
+  - ⚠️ **IMPORTANT**: The `mcp` package requires Python 3.10+
+  - Python 3.9 and lower are NOT supported
 - pip (Python package manager)
 - Docker (optional, for enhanced security)
 
-### Setup
+### Quick Setup
 
-1. **Clone the repository**:
+1. **Check Python version**:
    ```bash
-   git clone <your-repo-url>
+   python3 --version
+   # Must show 3.10.x or higher
+   ```
+
+2. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Purv123/Agent-Testing-MCP.git
    cd Agent-Testing-MCP
    ```
 
-2. **Create a virtual environment**:
+3. **Create a virtual environment**:
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies**:
+4. **Install dependencies**:
    ```bash
+   pip install --upgrade pip
    pip install -r requirements.txt
    ```
+
+> 💡 **Having installation issues?** See [INSTALLATION.md](INSTALLATION.md) for detailed troubleshooting
 
 4. **Set up DeepEval** (optional, for advanced evaluation):
    ```bash
