@@ -51,13 +51,32 @@ A universal testing framework for AI coding agents using the Model Context Proto
 
 ## Installation
 
+### 🐳 Quick Start with Docker (Recommended)
+
+**No Python installation needed!** Just Docker.
+
+```bash
+# 1. Clone and build
+git clone https://github.com/Purv123/Agent-Testing-MCP.git
+cd Agent-Testing-MCP
+docker build -t agent-testing-mcp .
+
+# 2. Run
+docker-compose up -d
+```
+
+**See [DOCKER.md](DOCKER.md) for complete Docker setup guide.**
+
+---
+
+### 🐍 Alternative: Local Python Installation
+
 ### Prerequisites
 
 - **Python 3.10 or higher** (3.11+ recommended)
   - ⚠️ **IMPORTANT**: The `mcp` package requires Python 3.10+
   - Python 3.9 and lower are NOT supported
 - pip (Python package manager)
-- Docker (optional, for enhanced security)
 
 ### Quick Setup
 

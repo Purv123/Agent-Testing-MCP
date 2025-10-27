@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  agent-testing-mcp:
+    build: .
+    image: agent-testing-mcp:latest
+    container_name: agent-testing-mcp-server
+
+    # For stdio MCP communication
+    stdin_open: true
+    tty: true
+
+    # Mount volumes for persistence
+    volumes:
+      - ./test_scenarios:/app/test_scenarios:ro
+      - ./results:/app/results
+      - ./logs:/app/logs
+
+    # Environment variables (optional)
+    environment:
+      - PYTHONPATH=/app
+      - DEFAULT_TIMEOUT=30
+      # Uncomment and add your OpenAI key for DeepEval
+      # - OPENAI_API_KEY=your-key-here
+
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+    # Restart policy
+    restart: unless-stopped
+
+# Optional: HTTP/SSE support (for future)
+# Uncomment to expose HTTP port
+#   ports:
+#     - "8000:8000"
