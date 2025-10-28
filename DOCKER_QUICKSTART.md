@@ -13,25 +13,52 @@
   sudo sh get-docker.sh
   ```
 
-### Step 2: Clone and Build
+### Step 2: One-Command Setup! ⭐
 
 ```bash
 git clone https://github.com/Purv123/Agent-Testing-MCP.git
 cd Agent-Testing-MCP
-docker build -t agent-testing-mcp .
+./run_mcp.sh
 ```
 
-### Step 3: Run
+**That's it!** The script will:
+- ✅ Check Docker installation
+- ✅ Build the image (if needed)
+- ✅ Create necessary directories
+- ✅ Start the MCP server
+
+### Alternative: Using docker-compose
 
 ```bash
 docker-compose up -d
 ```
 
-That's it! ✅
+## Useful Commands
+
+The `run_mcp.sh` script supports multiple commands:
+
+```bash
+./run_mcp.sh           # Run the server (default)
+./run_mcp.sh build     # Build the Docker image
+./run_mcp.sh rebuild   # Rebuild from scratch
+./run_mcp.sh stop      # Stop the server
+./run_mcp.sh logs      # View logs
+./run_mcp.sh shell     # Open shell in container
+./run_mcp.sh status    # Check if running
+./run_mcp.sh help      # Show help
+```
 
 ## Configure with Claude Code
 
-### Option 1: Using startup script
+### Option 1: Using the all-in-one script ⭐ (Recommended)
+
+```bash
+# Add to Claude Code
+claude mcp add --scope user --transport stdio agent-testing \
+  -- /full/path/to/Agent-Testing-MCP/run_mcp.sh
+```
+
+### Option 2: Using the Docker-specific script
 
 ```bash
 # Make script executable
