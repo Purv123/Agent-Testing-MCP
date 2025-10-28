@@ -20,13 +20,12 @@ from .executor import CodeExecutor
 from .evaluator import TestEvaluator
 from .reporter import ResultReporter
 
-# Configure logging
+# Configure logging - ONLY to file (not stderr) to avoid interfering with MCP stdio
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/mcp_server.log'),
-        logging.StreamHandler()
+        logging.FileHandler('logs/mcp_server.log')
     ]
 )
 logger = logging.getLogger(__name__)
