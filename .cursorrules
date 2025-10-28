@@ -1,0 +1,65 @@
+# Cursor Rules for Agent Testing MCP
+
+## Available Test Scenarios
+
+This project contains 5 test scenarios for AI coding practice:
+
+1. **basic_001** - Implement a Palindrome Checker (Easy)
+2. **bugfix_001** - Fix the Broken Calculator (Easy)
+3. **intermediate_001** - Parse and Analyze JSON Data (Medium)
+4. **advanced_001** - Implement Binary Search (Hard)
+5. **refactor_001** - Refactor Code for Better Readability (Medium)
+
+## How to Use with Cursor
+
+### Step 1: View Test Requirements
+```bash
+./agent-test get <scenario_id>
+```
+
+### Step 2: Write Solution in Cursor
+Ask Cursor to write the solution based on the requirements shown.
+
+### Step 3: Test Your Solution
+```bash
+./agent-test submit <scenario_id> <your_file.py>
+```
+
+### Step 4: Iterate Based on Results
+If tests fail, share the results with Cursor and ask it to fix the code.
+
+## Code Requirements
+
+All Python solutions must include:
+- A `main(input)` function that serves as the entry point
+- Proper error handling
+- Clean, readable code
+- Comments explaining logic
+
+Example template:
+```python
+def your_function(param):
+    """Your implementation here"""
+    pass
+
+def main(input_data):
+    """Entry point for testing"""
+    return your_function(input_data)
+```
+
+## Testing Commands
+
+- List scenarios: `./agent-test list`
+- View details: `./agent-test get <scenario_id>`
+- Submit solution: `./agent-test submit <scenario_id> <file.py>`
+- Quick execute: `./agent-test execute <file.py>`
+
+## Evaluation Metrics
+
+Solutions are evaluated on:
+- **Correctness (40%)**: Do test cases pass?
+- **Quality (20%)**: Code cleanliness, documentation
+- **Completeness (20%)**: All requirements met?
+- **Relevance (20%)**: Solves the right problem?
+
+Pass threshold: 70%
